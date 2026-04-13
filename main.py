@@ -42,6 +42,7 @@ def main():
                 return
         screen.fill("black")
         updatable.update(dt)
+        
         for roid in asteroids:
             if roid.collides_with(player):
                 log_event("player_hit")
@@ -51,6 +52,7 @@ def main():
             draw.draw(screen)
         pygame.display.flip()
         dt = game_clock.tick(60) / 1000
+        player.shot_cooldown -= dt
         
         
 
